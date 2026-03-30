@@ -1,0 +1,29 @@
+[package]
+name = "search"
+version = "0.1.0"
+description = "Player registration and timed resource search for Cossack Business game"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "search"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build", "resource_manager/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+
+[dependencies]
+anchor-lang = "0.32.1"
+anchor-spl = { version = "0.32.1", features = ["token_2022"] }
+resource_manager = { path = "../resource_manager", features = ["cpi"] }
+solana-program = "2.3"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }

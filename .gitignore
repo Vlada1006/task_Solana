@@ -1,0 +1,11 @@
+# Wallet / secret files — never commit these
+passphrase.txt
+*.json.key
+id.json
+
+# Build artifacts
+cossack_business/target/
+cossack_business/node_modules/
+cossack_business/.anchor/
+cossack_business/yarn.lock
+cossack_business/package-lock.json
